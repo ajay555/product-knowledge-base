@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --header-height: 60px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Smooth scrollbar for chat messages */
+.chat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background-color: #e2e8f0;
+  border-radius: 3px;
+}
+
+/* Typing cursor animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink::after {
+  content: '▋';
+  display: inline-block;
+  animation: blink 1s step-start infinite;
+  margin-left: 1px;
+  color: #2563eb;
+}
+
+/* Prose overrides for AI responses */
+.prose-chat {
+  @apply text-slate-800 text-sm leading-relaxed;
+}
+.prose-chat p { @apply mb-3 last:mb-0; }
+.prose-chat ul { @apply list-disc pl-5 mb-3 space-y-1; }
+.prose-chat ol { @apply list-decimal pl-5 mb-3 space-y-1; }
+.prose-chat strong { @apply font-semibold text-slate-900; }
+.prose-chat code { @apply bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-xs font-mono; }
+.prose-chat h3 { @apply font-semibold text-slate-900 mt-4 mb-2; }
